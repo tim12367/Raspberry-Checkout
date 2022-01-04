@@ -64,7 +64,7 @@ def run(model: str, camera_id: int, width: int, height: int, num_threads: int,
     # Draw keypoints and edges on input image
     image = utils.visualize(image, detections)
     # print(detections) # 輸出所有資料
-    # #[Detection(bounding_box=Rect(left=107, top=105, right=643, bottom=466), categories=[Category(label='keyboard', score=0.4765625, index=75)])]
+    # [Detection(bounding_box=Rect(left=107, top=105, right=643, bottom=466), categories=[Category(label='keyboard', score=0.4765625, index=75)])]
     # [Detection(bounding_box=Rect(left=3, top=7, right=636, bottom=472), categories=[Category(label='tv', score=0.3515625, index=71)])]
 
     # Calculate the FPS
@@ -95,7 +95,7 @@ def main():
       '--model',
       help='Path of the object detection model.',
       required=False,
-      default='efficientdet_lite0.tflite')
+      default='1223.tflite')
   parser.add_argument(
       '--cameraId', help='Id of camera.', required=False, type=int, default=0)
   parser.add_argument(
