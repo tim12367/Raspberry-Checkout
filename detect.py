@@ -72,7 +72,7 @@ def run(model: str, camera_id: int, width: int, height: int, num_threads: int,
     for out_put_data in detections:
         # print(product_prices[out_put_data.categories[0].label]) # 輸出所有資料
         total_price += product_prices[out_put_data.categories[0].label]
-    print(total_price)
+    # print(total_price)
     # [Detection(bounding_box=Rect(left=107, top=105, right=643, bottom=466), categories=[Category(label='keyboard', score=0.4765625, index=75)])]
     # [Detection(bounding_box=Rect(left=3, top=7, right=636, bottom=472), categories=[Category(label='tv', score=0.3515625, index=71)])]
 
@@ -91,7 +91,16 @@ def run(model: str, camera_id: int, width: int, height: int, num_threads: int,
     # Stop the program if the ESC key is pressed.
     if cv2.waitKey(1) == 27:
       break
+
+    # Press Space to show the total_prices
+    elif cv2.waitKey(1) == 32:
+        print(total_price)
+
+    cv2.namedWindow('object_detector', 0)  # 0可調大小
+    cv2.resizeWindow('object_detector', 400, 300)  # 設定長和寬
     cv2.imshow('object_detector', image)
+
+
 
   cap.release()
   cv2.destroyAllWindows()
