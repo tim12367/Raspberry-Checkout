@@ -8,6 +8,10 @@ from object_detector import ObjectDetector
 from object_detector import ObjectDetectorOptions
 import utils
 
+import board
+import adafruit_ssd1306
+import busio
+
 
 def run(model: str, camera_id: int, width: int, height: int, num_threads: int,
         enable_edgetpu: bool) -> None:
@@ -94,7 +98,15 @@ def run(model: str, camera_id: int, width: int, height: int, num_threads: int,
 
     # Press Space to show the total_prices
     elif cv2.waitKey(1) == 32:
-        print(total_price)
+        # print(total_price)  # test on screen
+
+        # display on OLED
+        i2c = busio.I2C(board.SCL,board.SDA)
+        oled = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c, addr=0x3C)
+        oled.fill(0)
+        oled.text(f'Price = ', 0, 5, 1, size=2)
+        oled.text(f'    {total_price}', 0, 25, 1, size=2)
+        oled.show()
 
     cv2.namedWindow('object_detector', 0)  # 0可調大小
     cv2.resizeWindow('object_detector', 400, 300)  # 設定長和寬
