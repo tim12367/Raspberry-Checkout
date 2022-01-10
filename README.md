@@ -2,8 +2,8 @@
 use Raspberry Pi OS & Python 3.9.2
 ## 簡介
 <div>
-    <img src="https://www.tensorflow.org/images/tf_logo_social.png" height="200"/>
-    <img src="https://pbs.twimg.com/profile_images/1455857819534647296/kWvczaKh_400x400.jpg" height="200"/>
+    <img src="https://github.com/tim12367/README-temp/blob/master/Raspberry-Checkout/tf_icon.png" height="200"/>
+    <img src="https://github.com/tim12367/README-temp/blob/master/Raspberry-Checkout/raspberry_icon.png" height="200"/>
 </div>
 
 在 *raspberry pi* 上使用*tflite Object Detection*對商品進行結帳並輸出於128*64單色OLED螢幕上
@@ -31,5 +31,24 @@ use Raspberry Pi OS & Python 3.9.2
 
 ## 製作過程
 - 拍攝要辨識的商品圖片
+<div>
+    <img src="https://github.com/tim12367/README-temp/blob/master/Raspberry-Checkout/19.jpg" height="200"/>
+    <img src="https://github.com/tim12367/README-temp/blob/master/Raspberry-Checkout/79.jpg" height="200"/>
+</div>
+<div>
+    <img src="https://github.com/tim12367/README-temp/blob/master/Raspberry-Checkout/105.jpg" height="200"/>
+    <img src="https://github.com/tim12367/README-temp/blob/master/Raspberry-Checkout/130.jpg" height="200"/>
+</div>
+
 - 使用LabelImg對圖片進行影像標註
-- 使用 **TensorFlow Lite Model Maker** fine-tuning EfficientDet 模型
+
+<div>
+    <img src="https://github.com/tim12367/README-temp/blob/master/Raspberry-Checkout/19-1.PNG" height="200"/>
+    <img src="https://github.com/tim12367/README-temp/blob/master/Raspberry-Checkout/79-1.PNG" height="200"/>
+</div>
+<div>
+    <img src="https://github.com/tim12367/README-temp/blob/master/Raspberry-Checkout/105-1.PNG" height="200"/>
+    <img src="https://github.com/tim12367/README-temp/blob/master/Raspberry-Checkout/130-1.PNG" height="200"/>
+</div>
+
+- 使用 **TensorFlow Lite Model Maker** fine-tuning EfficientDet D0模型
