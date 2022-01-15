@@ -1,5 +1,5 @@
 # 物體辨識結帳
-use Raspberry Pi OS & Python 3.9.2
+use Raspberry Pi OS Full (32-bit) 2021-10-30 & Python 3.9.2
 ## 簡介
 <div>
     <img src="https://github.com/tim12367/README-temp/blob/master/Raspberry-Checkout/tf_icon.png" height="200"/>
