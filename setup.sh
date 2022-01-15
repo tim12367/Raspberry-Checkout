@@ -13,3 +13,4 @@ pip3 install tflite-runtime==2.7.0
 pip3 install argparse
 pip3 install numpy==1.21.4
 pip3 install tflite-support==0.3.1
+sudo apt-get install libatlas-base-dev
