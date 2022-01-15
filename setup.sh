@@ -3,9 +3,6 @@
 sudo apt-get update
 sudo apt-get install -y python3-pip
 sudo pip3 install --upgrade setuptools
-# Install virtualenv and upgrade pip.
-python3 -m pip install --user --upgrade pip
-python3 -m pip install --user virtualenv
 sudo apt-get install -y i2c-tools
 export CFLAGS=-fcommon
 pip3 install RPi.GPIO==0.7.0
