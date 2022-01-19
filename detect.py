@@ -51,6 +51,10 @@ def run(model: str, camera_id: int, width: int, height: int, num_threads: int,
       enable_edgetpu=enable_edgetpu)
   detector = ObjectDetector(model_path=model, options=options)
 
+  # Initialize OLED
+  i2c = busio.I2C(board.SCL, board.SDA)
+  oled = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c, addr=0x3C)
+
   # The product Prices
   product_prices = {'webcam': 1000, 'ruler': 10, 'scissors': 100, 'pen': 50}
 
@@ -73,9 +77,11 @@ def run(model: str, camera_id: int, width: int, height: int, num_threads: int,
 
     # Price sum
     total_price = 0
+    product = ''
     for out_put_data in detections:
         # print(product_prices[out_put_data.categories[0].label]) # 輸出所有資料
         total_price += product_prices[out_put_data.categories[0].label]
+        product = product + str(out_put_data.categories[0].label) + ' '
     # print(total_price)
     # [Detection(bounding_box=Rect(left=107, top=105, right=643, bottom=466), categories=[Category(label='keyboard', score=0.4765625, index=75)])]
     # [Detection(bounding_box=Rect(left=3, top=7, right=636, bottom=472), categories=[Category(label='tv', score=0.3515625, index=71)])]
@@ -93,11 +99,11 @@ def run(model: str, camera_id: int, width: int, height: int, num_threads: int,
                 font_size, text_color, font_thickness)
 
     # display on OLED
-    i2c = busio.I2C(board.SCL,board.SDA)
-    oled = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c, addr=0x3C)
     oled.fill(0)
     oled.text(f'Price = ', 0, 5, 1, size=2)
     oled.text(f'    {total_price}', 0, 25, 1, size=2)
+    oled.text(f'{product[:15]}', 0, 45, 1, size=1)
+    oled.text(f'{product[15:]}', 0, 55, 1, size=1)
     oled.show()
 
     cv2.namedWindow('object_detector', 0)  # 0可調大小
